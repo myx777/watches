@@ -20,6 +20,10 @@ const Clock: FC<ClockComponentProps> = ({ city, timeZone, onDelete }) => {
       setTime({ hours, minutes, seconds });
     }, 1000);
 
+    /**
+     * если значение timeZone изменится (или другая зависимость, указанная в массиве
+     * зависимостей useEffect), то интервал должен быть очищен
+     */
     return () => {
       clearInterval(intervalId);
     };
